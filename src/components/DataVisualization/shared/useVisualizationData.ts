@@ -23,6 +23,8 @@ const mockData: SurveyResponse[] = [
     peak_performance: 'Extrovert, Morning',
     motivation: 'growth',
     unique_quality: 'Mock response 1',
+    status: 'pending',
+    moderated_at: null,
     created_at: '2024-01-01T00:00:00Z',
     updated_at: '2024-01-01T00:00:00Z',
     attendee: {
@@ -44,6 +46,8 @@ const mockData: SurveyResponse[] = [
     peak_performance: 'Introvert, Morning',
     motivation: 'impact',
     unique_quality: 'Mock response 2',
+    status: 'pending',
+    moderated_at: null,
     created_at: '2024-01-01T00:00:00Z',
     updated_at: '2024-01-01T00:00:00Z',
     attendee: {
@@ -65,6 +69,8 @@ const mockData: SurveyResponse[] = [
     peak_performance: 'Ambivert, Morning',
     motivation: 'purpose',
     unique_quality: 'Mock response 3',
+    status: 'pending',
+    moderated_at: null,
     created_at: '2024-01-01T00:00:00Z',
     updated_at: '2024-01-01T00:00:00Z',
     attendee: {
