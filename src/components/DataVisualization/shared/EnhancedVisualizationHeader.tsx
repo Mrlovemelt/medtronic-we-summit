@@ -41,7 +41,7 @@ export function EnhancedVisualizationHeader({
       {/* Logo and Title - row, left-aligned */}
       <div className="flex-shrink-0 flex flex-row items-center justify-start" style={{ minWidth: 220 }}>
         <img
-          src="/branding/art-logo-all/art-logo-w/art-logo-en-rgb-w.png"
+          src="/logo.png"
           alt="Medtronic Logo"
           style={{ height: 90, width: 'auto', marginRight: 16 }}
         />

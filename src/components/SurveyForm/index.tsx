@@ -45,7 +45,7 @@ export function SurveyForm() {
         <div className="text-center mb-8">
           <div className="mb-2 flex justify-center">
             <Image
-              src="/branding/art-logo-all/art-logo-bl/art-logo-en-rgb-bl-svg.svg"
+              src="/logo.png"
               alt="Medtronic logo"
               width={220}
               height={0}
