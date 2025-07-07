@@ -178,6 +178,8 @@ export const convertAppToDBResponse = (appResponse: AppSurveyResponse): DBSurvey
     peak_performance: appResponse.peak_performance,
     motivation: appResponse.motivation,
     unique_quality: appResponse.unique_quality,
+    status: 'pending',
+    moderated_at: null,
   };
 };
 
