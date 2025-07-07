@@ -49,19 +49,12 @@ export function AdminPanel() {
     notes?: string
   ) => {
     try {
-      // Get the current user from supabase
-      const { data: userData } = await supabase.auth.getUser();
-      const user = userData.user;
-      if (!user?.id) {
-        setError('No moderator user ID found. Please log in again.');
-        return;
-      }
-      
-      console.log('Attempting moderation with user ID:', user.id);
-      
+      // Use static moderator ID since we have password protection
+      const moderatorId = 'admin';
+      console.log('Attempting moderation with static moderator ID:', moderatorId);
       const result = await updateModerationStatus(responseId, {
         status,
-        moderator_id: user.id,
+        moderator_id: moderatorId,
         notes,
       });
       
