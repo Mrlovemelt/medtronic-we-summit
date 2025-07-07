@@ -99,16 +99,24 @@ const normalizeShapedBy = (shaped: string): ShapedBy => {
 
 // Helper function to normalize peak performance
 const normalizePeakPerformance = (peak: string): PeakPerformanceType => {
+  // Normalize input string
   const normalized = peak.toLowerCase().replace(/[^a-z]/g, '_');
+  // Map normalized input to valid PeakPerformanceType values
   switch (normalized) {
-    case 'individual':
-    case 'team':
-    case 'leadership':
-    case 'innovation':
-    case 'crisis':
-      return normalized as PeakPerformanceType;
+    case 'extrovert_morning':
+      return 'Extrovert, Morning';
+    case 'extrovert_evening':
+      return 'Extrovert, Evening';
+    case 'introvert_morning':
+      return 'Introvert, Morning';
+    case 'introvert_night':
+      return 'Introvert, Night';
+    case 'ambivert_morning':
+      return 'Ambivert, Morning';
+    case 'ambivert_night':
+      return 'Ambivert, Night';
     default:
-      return 'team';
+      return 'Extrovert, Morning';
   }
 };
 
@@ -184,30 +192,30 @@ export const loadSurveyData = async (): Promise<AppSurveyResponse[]> => {
     }
     
     // Fallback to TypeScript data if JSON loading fails
-    const { mockSurveyResponses } = await import('@/data/mockSurveyResponses');
-    return mockSurveyResponses.map((dbResponse) => ({
+    const { medtronic_data } = await import('@/data/mockSurveyResponses3.json');
+    return medtronic_data.map((dbResponse: any) => ({
       id: dbResponse.id,
       created_at: dbResponse.created_at,
-      name: dbResponse.attendee.is_anonymous ? 'Anonymous' : `${dbResponse.attendee.first_name} ${dbResponse.attendee.last_name || ''}`,
+      name: dbResponse.attendee && dbResponse.attendee.is_anonymous ? 'Anonymous' : `${dbResponse.attendee?.first_name || ''} ${dbResponse.attendee?.last_name || ''}`.trim(),
       years_at_medtronic: dbResponse.years_at_medtronic?.toString() || '0',
       learning_style: dbResponse.learning_style || 'visual',
       shaped_by: dbResponse.shaped_by || 'other',
-      peak_performance: dbResponse.peak_performance || 'team',
+      peak_performance: dbResponse.peak_performance || 'Extrovert, Morning',
       motivation: dbResponse.motivation || 'impact',
       unique_quality: dbResponse.unique_quality || '',
     }));
   } catch (error) {
     console.error('Error loading survey data:', error);
     // Fallback to TypeScript data
-    const { mockSurveyResponses } = await import('@/data/mockSurveyResponses');
-    return mockSurveyResponses.map((dbResponse) => ({
+    const { medtronic_data } = await import('@/data/mockSurveyResponses3.json');
+    return medtronic_data.map((dbResponse: any) => ({
       id: dbResponse.id,
       created_at: dbResponse.created_at,
-      name: dbResponse.attendee.is_anonymous ? 'Anonymous' : `${dbResponse.attendee.first_name} ${dbResponse.attendee.last_name || ''}`,
+      name: dbResponse.attendee && dbResponse.attendee.is_anonymous ? 'Anonymous' : `${dbResponse.attendee?.first_name || ''} ${dbResponse.attendee?.last_name || ''}`.trim(),
       years_at_medtronic: dbResponse.years_at_medtronic?.toString() || '0',
       learning_style: dbResponse.learning_style || 'visual',
       shaped_by: dbResponse.shaped_by || 'other',
-      peak_performance: dbResponse.peak_performance || 'team',
+      peak_performance: dbResponse.peak_performance || 'Extrovert, Morning',
       motivation: dbResponse.motivation || 'impact',
       unique_quality: dbResponse.unique_quality || '',
     }));
