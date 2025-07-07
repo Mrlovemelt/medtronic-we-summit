@@ -28,7 +28,7 @@ export async function exportSurveyData() {
       headers.join(','),
       ...exportData.map(row => 
         headers.map(header => 
-          JSON.stringify(row[header])
+          JSON.stringify((row as any)[header])
         ).join(',')
       )
     ].join('\n');
