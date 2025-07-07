@@ -22,7 +22,7 @@ export function AdminPanel() {
   const [queue, setQueue] = useState<QueueItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | undefined>(undefined);
-  const [moderatorId, setModeratorId] = useState<string>('');
+  const [moderatorId, setModeratorId] = useState<string>('00000000-0000-0000-0000-000000000000');
   const router = useRouter();
 
   useEffect(() => {
@@ -50,7 +50,6 @@ export function AdminPanel() {
   ) => {
     try {
       // Use static moderator ID since we have password protection
-      const moderatorId = 'admin';
       console.log('Attempting moderation with static moderator ID:', moderatorId);
       const result = await updateModerationStatus(responseId, {
         status,
