@@ -55,6 +55,7 @@ const Node: React.FC<NodeProps> = ({ data, isSelected, isHovered, onClick, onHov
       onPointerOut={() => onHover(false)}
     >
       <sphereGeometry args={[0.5, 32, 32]} />
+      {/* @ts-expect-error: Type instantiation is excessively deep and possibly infinite (react-three-fiber/animated) */}
       <animated.meshStandardMaterial
         color={getNodeColor(data.yearsCategory)}
         transparent
