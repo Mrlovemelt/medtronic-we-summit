@@ -52,6 +52,8 @@ export interface Database {
           peak_performance: PeakPerformanceType | null;
           motivation: MotivationType | null;
           unique_quality: string | null;
+          status: ModerationStatus;
+          moderated_at: string | null;
           created_at: string;
           updated_at: string;
         };
@@ -64,6 +66,8 @@ export interface Database {
           peak_performance?: PeakPerformanceType | null;
           motivation?: MotivationType | null;
           unique_quality?: string | null;
+          status?: ModerationStatus;
+          moderated_at?: string | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -76,6 +80,8 @@ export interface Database {
           peak_performance?: PeakPerformanceType | null;
           motivation?: MotivationType | null;
           unique_quality?: string | null;
+          status?: ModerationStatus;
+          moderated_at?: string | null;
           created_at?: string;
           updated_at?: string;
         };
